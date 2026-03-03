@@ -2,7 +2,6 @@ import { Handle, Position } from '@xyflow/react';
 import { User, Heart } from 'lucide-react';
 import { cn } from '../utils/cn';
 import { useProfile } from '../context/ProfileContext';
-import { useFilter } from '../context/FilterContext';
 
 export type Person = {
   id: string;
@@ -16,34 +15,18 @@ export type FamilyNodeData = {
   label?: string;
   people: Person[];
   isCenter?: boolean;
-  isCouple?: boolean;
 };
 
 export default function FamilyNode({ data }: { data: FamilyNodeData }) {
-  const isCouple = data.isCouple;
+  const isCouple = data.people.length > 1;
   const { profiles, setSelectedPersonId } = useProfile();
-  const { filters } = useFilter();
-
-  const hasActiveFilter = filters.searchTerm !== '' || filters.hasBio || filters.hasBirthDate;
-
-  const peopleMatchStatus = data.people.map(person => {
-    const profile = profiles[person.id];
-    const matchesSearch = filters.searchTerm === '' || person.name.toLowerCase().includes(filters.searchTerm.toLowerCase());
-    const matchesBio = !filters.hasBio || !!profile?.bio;
-    const matchesBirthDate = !filters.hasBirthDate || !!profile?.birthDate;
-    return matchesSearch && matchesBio && matchesBirthDate;
-  });
-
-  const anyMatch = peopleMatchStatus.some(match => match);
-  const nodeDimmed = hasActiveFilter && !anyMatch;
 
   return (
     <div
       className={cn(
-        'tour-node relative flex flex-col items-center rounded-2xl border-2 bg-white/90 p-3 sm:p-4 shadow-sm backdrop-blur-sm transition-all hover:-translate-y-1 hover:shadow-lg',
+        'relative flex flex-col items-center rounded-2xl border-2 bg-white/90 p-4 shadow-sm backdrop-blur-sm transition-all hover:-translate-y-1 hover:shadow-lg',
         data.isCenter ? 'border-rose-400 shadow-rose-100' : 'border-slate-200',
-        'min-w-[180px] sm:min-w-[200px]',
-        nodeDimmed && 'opacity-40 grayscale hover:opacity-100 hover:grayscale-0'
+        'min-w-[200px]'
       )}
     >
       <Handle type="target" position={Position.Top} className="!bg-slate-400 !w-3 !h-3" />
@@ -60,18 +43,12 @@ export default function FamilyNode({ data }: { data: FamilyNodeData }) {
       )}
 
       <div className="mt-2 flex items-center justify-center gap-4">
-        {data.people.map((person, index) => {
+        {data.people.map((person) => {
           const profile = profiles[person.id];
-          const isMatch = peopleMatchStatus[index];
-          const personDimmed = hasActiveFilter && !isMatch;
-
           return (
             <div 
               key={person.id} 
-              className={cn(
-                "flex flex-col items-center gap-1 cursor-pointer group transition-all",
-                personDimmed && !nodeDimmed && "opacity-30 grayscale hover:opacity-100 hover:grayscale-0"
-              )}
+              className="flex flex-col items-center gap-1 cursor-pointer group"
               onClick={() => setSelectedPersonId(person.id)}
             >
               <div
