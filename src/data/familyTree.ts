@@ -8,6 +8,7 @@ export const initialNodes: Node<FamilyNodeData>[] = [
     type: 'family',
     data: {
       label: 'Thế hệ 1: Cụ Ngoại',
+      isCouple: true,
       people: [
         { id: 'le_huu_cau', name: 'Lê Hữu Cầu', role: 'Ông cố', gender: 'M' },
         { id: 'le_thi_coi', name: 'Lê Thị Cới', role: 'Bà cố', gender: 'F' },
@@ -38,6 +39,7 @@ export const initialNodes: Node<FamilyNodeData>[] = [
     type: 'family',
     data: {
       label: 'Thế hệ 2: Ông Bà Ngoại',
+      isCouple: true,
       people: [
         { id: 'trinh_dinh_cu', name: 'Trịnh Đình Cứ', role: 'Ông ngoại', gender: 'M' },
         { id: 'le_thi_chau', name: 'Lê Thị Châu', role: 'Bà ngoại', gender: 'F' },
@@ -63,6 +65,7 @@ export const initialNodes: Node<FamilyNodeData>[] = [
     id: 'n_bac_tuan',
     type: 'family',
     data: {
+      isCouple: true,
       people: [
         { id: 'trinh_quoc_tuan', name: 'Trịnh Quốc Tuấn', role: 'Trai cả', gender: 'M' },
         { id: 'nguyen_thi_thuy', name: 'Nguyễn Thị Thủy', role: 'Vợ', gender: 'F' },
@@ -90,6 +93,7 @@ export const initialNodes: Node<FamilyNodeData>[] = [
     id: 'n_cau_dung',
     type: 'family',
     data: {
+      isCouple: true,
       people: [
         { id: 'trinh_tien_dung', name: 'Trịnh Tiến Dũng', role: 'Anh 5', gender: 'M' },
         { id: 'nguyen_thi_cam_vy', name: 'Nguyễn Thị Cẩm Vy', role: 'Vợ', gender: 'F' },
@@ -101,6 +105,7 @@ export const initialNodes: Node<FamilyNodeData>[] = [
     id: 'n_cau_viet_anh',
     type: 'family',
     data: {
+      isCouple: true,
       people: [
         { id: 'trinh_viet_anh', name: 'Trịnh Việt Anh', role: 'Anh 6', gender: 'M' },
         { id: 'dao_kim_thuy', name: 'Đào Kim Thùy', role: 'Vợ', gender: 'F' },
@@ -156,6 +161,7 @@ export const initialNodes: Node<FamilyNodeData>[] = [
     type: 'family',
     data: {
       label: 'Thế hệ 2: Ông Bà Nội',
+      isCouple: true,
       people: [
         { id: 'nguyen_viet_ky', name: 'Nguyễn Viết Kỳ', role: 'Ông nội', gender: 'M' },
         { id: 'nguyen_thi_chung', name: 'Nguyễn Thị Chung', role: 'Bà nội', gender: 'F' },
@@ -169,6 +175,7 @@ export const initialNodes: Node<FamilyNodeData>[] = [
     id: 'n_co_lan_anh_noi',
     type: 'family',
     data: {
+      isCouple: true,
       people: [
         { id: 'nguyen_thi_lan_anh_noi', name: 'Nguyễn Thị Lan Anh', role: 'Em 3', gender: 'F' },
         { id: 'nguyen_phan_thu', name: 'Nguyễn Phan Thư', role: 'Chồng', gender: 'M' },
@@ -180,6 +187,7 @@ export const initialNodes: Node<FamilyNodeData>[] = [
     id: 'n_chu_dung',
     type: 'family',
     data: {
+      isCouple: true,
       people: [
         { id: 'nguyen_xuan_dung', name: 'Nguyễn Xuân Dũng', role: 'Em 4', gender: 'M' },
         { id: 'nguyen_yen_vy', name: 'Nguyễn Yến Vy', role: 'Vợ', gender: 'F' },
@@ -219,6 +227,7 @@ export const initialNodes: Node<FamilyNodeData>[] = [
     data: {
       label: '❤️ GIA ĐÌNH TRUNG TÂM',
       isCenter: true,
+      isCouple: true,
       people: [
         { id: 'nguyen_xuan_khanh', name: 'Nguyễn Xuân Khánh', role: 'Anh 2 (Nội)', gender: 'M', isMain: true },
         { id: 'trinh_thi_to_loan', name: 'Trịnh Thị Tố Loan', role: 'Em út (Ngoại)', gender: 'F', isMain: true },
